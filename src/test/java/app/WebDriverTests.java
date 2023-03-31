@@ -22,14 +22,14 @@ public class WebDriverTests {
     }
 
     @Test
-    public void testGetUrl() {
+    public void loginRegistrationLink() {
         driver.get("https://watatsumi.com.ua");
         WebElement loginRegistration = driver.findElement(By.cssSelector("#menu-item-106 > a"));
         Assertions.assertTrue(loginRegistration.isDisplayed());
     }
 
     @Test
-    public void testGetUrl1() {
+    public void registrationMyaccount() {
         driver.get("https://watatsumi.com.ua/my-account");
         WebElement registration = driver.findElement(By.xpath("//*[@id='reg_email']"));
         registration.sendKeys("watatsumi@gmail.com");
@@ -37,7 +37,7 @@ public class WebDriverTests {
     }
 
     @Test
-    public void testGetUrl2() {
+    public void siteContacts() {
         driver.get("https://watatsumi.com.ua/kontakty");
         WebElement kontakty = driver.findElement(By.cssSelector(".map"));
         Assertions.assertTrue(kontakty.isDisplayed(), "Contact page not loaded");
