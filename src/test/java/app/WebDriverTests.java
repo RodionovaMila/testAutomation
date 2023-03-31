@@ -1,5 +1,6 @@
 package app;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,15 +22,15 @@ public class WebDriverTests {
     }
 
     @Test
-    public void testGetUrl1() {
-        driver.get("https://watatsumi.com.ua/");
+    public void testGetUrl() {
+        driver.get("https://watatsumi.com.ua");
         WebElement loginRegistration = driver.findElement(By.cssSelector("#menu-item-106 > a"));
         Assertions.assertTrue(loginRegistration.isDisplayed());
     }
 
     @Test
-    public void testGetUrl() {
-        driver.get("https://watatsumi.com.ua/my-account/");
+    public void testGetUrl1() {
+        driver.get("https://watatsumi.com.ua/my-account");
         WebElement registration = driver.findElement(By.xpath("//*[@id='reg_email']"));
         registration.sendKeys("watatsumi@gmail.com");
         Assertions.assertTrue(registration.isDisplayed());
@@ -41,4 +42,11 @@ public class WebDriverTests {
         WebElement kontakty = driver.findElement(By.cssSelector(".map"));
         Assertions.assertTrue(kontakty.isDisplayed(), "Contact page not loaded");
     }
+
+    @AfterAll
+    public static void afterAll() {
+        driver.quit();
+
+    }
 }
+
